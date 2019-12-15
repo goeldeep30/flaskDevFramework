@@ -1,4 +1,6 @@
 echo "WARNING: Make Sure You Are Inside Project's Package"
+echo "Enter name of package"
+read package
 echo "Enter name of View"
 read name
 
@@ -23,6 +25,8 @@ def ${name}_def():
 
 
 " >> routes.py
+sed -i "/# waiting for imports_2, please do not remove this line/c\from ${package}.templates.${name}.${name}View import *\n# waiting for imports_2, please do not remove this line" routes.py
+
 
 
 echo "View ${name} created successfully"
